@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>亲爱的，我爱你</title>
+
+<style type="text/css">
+@font-face {
+	font-family: digit;
+	src: url('digital-7_mono.ttf') format("truetype");
+}
+</style>
+
+<link href="css/default.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/garden.js"></script>
+<script type="text/javascript" src="js/functions.js"></script>
+
+</head>
+
+<body>
+
+<div id="mainDiv">
+	<div id="content">
+		<div id="code">
+			<span class="space"/><span class="comments">亲爱的李总：</span><br />
+
+			<blockquote>
+			<span class="keyword"></span><br />
+			<span class="comments">从EIN 开业，再到DM 的创立</span><br />
+			<span class="comments">这一路走来，充满欢声，充满笑语。充满风雨。</span><br />
+			<span class="comments">充满坎坷。充满阳光。充满泪水...</span><br />
+			<span class="comments">无论过程怎么艰苦，我们一路并肩走来</span><br />
+			<span class="comments">现在已经有4家店面了</span><br />
+			<span class="comments"><span class="keyword">感恩</span>您的大爱付出未来的路无论怎么艰辛。</span><br />
+			<span class="comments">我们一定会紧跟您的脚步。</span><br />
+			<span class="comments">早日实现百家店梦想。实现到老一起拄拐棍儿。</span><br />
+			<br>
+
+		</div>
+		<div id="loveHeart">
+			<canvas id="garden"></canvas>
+			<div id="words">
+				<div id="messages">
+					我不记得我们一起多少年，我只记得我们一起
+					<div id="elapseClock"></div>
+				</div>
+				<div id="loveu">
+					你若不离 我便不弃，誓死相随<br/>
+					<div class="signature">--- 松原玮涵服饰全体员工
+						</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="copyright">
+		<audio src="music/therose.aac" controls="controls" autoplay="autoplay"></audio>
+	</div>
+</div>
+
+<script type="text/javascript">
+var offsetX = $("#loveHeart").width() / 2;
+var offsetY = $("#loveHeart").height() / 2 - 55;
+var together = new Date();
+together.setFullYear(2003, parseInt(1)-1, 23);
+together.setHours(13);
+together.setMinutes(12);
+together.setSeconds(4);
+together.setMilliseconds(0);
+
+if (!document.createElement('canvas').getContext) {
+	var msg = document.createElement("div");
+	msg.id = "errorMsg";
+	msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+	document.body.appendChild(msg);
+	$("#code").css("display", "none")
+	$("#copyright").css("position", "absolute");
+	$("#copyright").css("bottom", "10px");
+	document.execCommand("stop");
+} else {
+	setTimeout(function () {
+		startHeartAnimation();
+	}, 5000);
+
+	timeElapse(together);
+	setInterval(function () {
+		timeElapse(together);
+	}, 500);
+
+	adjustCodePosition();
+	$("#code").typewriter();
+}
+</script>
+
+</body>
+</html>
